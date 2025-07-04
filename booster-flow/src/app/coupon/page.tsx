@@ -6,6 +6,8 @@ export default function CouponPage() {
   const searchParams = useSearchParams()
   const router = useRouter()
   const basePrice = Number(searchParams.get('price'))
+ const days = searchParams.get('days')
+  const benefit = searchParams.get('benefit')??""
 
   const [coupon, setCoupon] = useState('')
   const [discountedPrice, setDiscountedPrice] = useState(basePrice)
@@ -25,8 +27,11 @@ export default function CouponPage() {
   }
 
   const proceed = () => {
-    router.push(`/confirm?price=${discountedPrice}`)
-  }
+  router.push(
+    `/confirm?price=${discountedPrice}&days=${days}&benefit=${encodeURIComponent(benefit)}&basePrice=${basePrice}`
+  )
+}
+
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-green-100">
