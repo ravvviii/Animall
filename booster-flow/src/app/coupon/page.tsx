@@ -7,13 +7,14 @@ export default function CouponPage() {
   const router = useRouter()
   const basePrice = Number(searchParams.get('price'))
  const days = searchParams.get('days')
-  const benefit = searchParams.get('benefit')??""
+  const benefit = searchParams.get('benefit')??""   
 
   const [coupon, setCoupon] = useState('')
   const [discountedPrice, setDiscountedPrice] = useState(basePrice)
   const [error, setError] = useState('')
   const [success, setSuccess] = useState(false)
 
+  
   const applyCoupon = () => {
     if (coupon.trim().toUpperCase() === 'SAVE50') {
       setDiscountedPrice(basePrice / 2)
