@@ -1,20 +1,20 @@
 'use client'
-import { useRouter, useSearchParams } from 'next/navigation'
-import { useState } from 'react'
 
-export default function CouponPage() {
+import { useRouter, useSearchParams } from 'next/navigation'
+import { Suspense, useState } from 'react'
+
+function CouponPageInner() {
   const searchParams = useSearchParams()
   const router = useRouter()
   const basePrice = Number(searchParams.get('price'))
- const days = searchParams.get('days')
-  const benefit = searchParams.get('benefit')??""   
+  const days = searchParams.get('days') ?? ''
+  const benefit = searchParams.get('benefit') ?? ''
 
   const [coupon, setCoupon] = useState('')
   const [discountedPrice, setDiscountedPrice] = useState(basePrice)
   const [error, setError] = useState('')
   const [success, setSuccess] = useState(false)
 
-  
   const applyCoupon = () => {
     if (coupon.trim().toUpperCase() === 'SAVE50') {
       setDiscountedPrice(basePrice / 2)
@@ -28,11 +28,10 @@ export default function CouponPage() {
   }
 
   const proceed = () => {
-  router.push(
-    `/confirm?price=${discountedPrice}&days=${days}&benefit=${encodeURIComponent(benefit)}&basePrice=${basePrice}`
-  )
-}
-
+    router.push(
+      `/confirm?price=${discountedPrice}&days=${days}&benefit=${encodeURIComponent(benefit)}&basePrice=${basePrice}`
+    )
+  }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-green-100">
@@ -73,11 +72,20 @@ export default function CouponPage() {
         </div>
         <button
           onClick={proceed}
-          className="w-full mt-8 bg-blue-600  hover:bg-green-600 text-white py-3 rounded-xl text-lg font-bold shadow-lg transition"
+          className="w-full mt-8  bg-blue-500 hover:bg-red-600  text-white py-3 rounded-xl text-lg font-bold shadow-lg transition"
         >
           Continue
         </button>
       </div>
     </div>
+  )
+}
+
+// The actual page component:
+export default function CouponPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <CouponPageInner />
+    </Suspense>
   )
 }
