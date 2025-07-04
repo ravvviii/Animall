@@ -34,22 +34,23 @@ function CouponPageInner() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-green-100">
-      <div className="bg-white rounded-3xl shadow-2xl p-8 max-w-md w-full border border-blue-100">
-        <h2 className="text-3xl font-extrabold mb-6 text-center text-blue-900 tracking-tight">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-green-100 px-2">
+      <div className="bg-white rounded-3xl shadow-2xl p-6 sm:p-8 max-w-md w-full border border-blue-100">
+        <h2 className="text-2xl sm:text-3xl font-extrabold mb-6 text-center text-blue-900 tracking-tight">
           🎁 Apply Your Coupon
         </h2>
-        <div className="flex items-center mb-4">
+        
+        <div className="flex flex-col sm:flex-row items-stretch mb-4 gap-2">
           <input
             type="text"
             value={coupon}
             onChange={(e) => setCoupon(e.target.value)}
             placeholder="Enter coupon code"
-            className="flex-1 border-2 border-blue-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 rounded-l-xl p-3 outline-none text-lg transition text-black"
+            className="flex-1 border-2 border-blue-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 rounded-xl sm:rounded-l-xl sm:rounded-r-none p-3 outline-none text-lg transition text-black"
           />
           <button
             onClick={applyCoupon}
-            className="bg-blue-600 hover:bg-green-700 text-white px-6 py-3 rounded-r-xl font-semibold shadow transition"
+            className="bg-blue-600 hover:bg-green-700 text-white px-6 py-3 rounded-xl sm:rounded-l-none sm:rounded-r-xl font-semibold shadow transition w-full sm:w-auto"
           >
             Apply
           </button>
@@ -72,7 +73,7 @@ function CouponPageInner() {
         </div>
         <button
           onClick={proceed}
-          className="w-full mt-8  bg-blue-500 hover:bg-red-600  text-white py-3 rounded-xl text-lg font-bold shadow-lg transition"
+          className="w-full mt-8 bg-blue-500 hover:bg-red-600 text-white py-3 rounded-xl text-lg font-bold shadow-lg transition"
         >
           Continue
         </button>
@@ -81,7 +82,6 @@ function CouponPageInner() {
   )
 }
 
-// The actual page component:
 export default function CouponPage() {
   return (
     <Suspense fallback={<div>Loading...</div>}>
@@ -89,3 +89,4 @@ export default function CouponPage() {
     </Suspense>
   )
 }
+``
