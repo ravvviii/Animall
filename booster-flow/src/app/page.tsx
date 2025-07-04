@@ -27,7 +27,7 @@ export default function HomePage() {
       <button
         key={plan.id}
         onClick={() => handleSelect(plan)}
-        className="w-full group border-2 border-transparent rounded-2xl p-6 shadow-lg bg-white hover:border-blue-400 hover:shadow-xl transition-all duration-200 cursor-pointer focus:outline-none focus:ring-4 focus:ring-blue-200"
+        className="w-full group border-2 border-transparent rounded-2xl p-6 shadow-lg bg-white hover:border-red-400 hover:shadow-xl transition-all duration-200 cursor-pointer focus:outline-none focus:ring-4 focus:ring-blue-200"
       >
         <div className="flex items-center justify-between">
           <span className="text-2xl font-bold text-blue-800">

@@ -3,7 +3,7 @@ export default function SuccessPage() {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-green-100">
       <div className="bg-white rounded-3xl shadow-2xl border border-green-100 p-8 max-w-md w-full text-center">
         <div className="flex justify-center mb-4">
-          {/* Celebration Icon (SVG) */}
+          
           <svg
             className="w-16 h-16 text-green-500"
             fill="none"

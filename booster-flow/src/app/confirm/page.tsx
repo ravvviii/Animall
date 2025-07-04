@@ -19,7 +19,7 @@ export default function ConfirmPage() {
         <h2 className="text-3xl font-extrabold mb-6 text-center text-blue-900 tracking-tight">
           🛒 Confirm Purchase
         </h2>
-        {/* Plan Details Card */}
+        
         <div className="bg-blue-50 rounded-xl p-4 mb-8 shadow flex flex-col items-center">
           <div className="text-lg font-semibold text-blue-800 mb-1">
             {duration} Days Booster
