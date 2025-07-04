@@ -1,13 +1,15 @@
 'use client'
 import { useRouter, useSearchParams } from 'next/navigation'
+import { Suspense } from 'react'
 
-export default function ConfirmPage() {
+function ConfirmPageInner() {
   const router = useRouter()
   const searchParams = useSearchParams()
-  const price = searchParams.get('price')
-  const duration = searchParams.get('duration')
-  const benefit = searchParams.get('benefit')
-  const basePrice = searchParams.get('basePrice')
+ 
+  const price = searchParams.get('price') ?? ''
+  const days = searchParams.get('days') ?? ''
+  const benefit = searchParams.get('benefit') ?? ''
+  const basePrice = searchParams.get('basePrice') ?? ''
 
   const handleConfirm = () => {
     router.push('/success')
@@ -22,7 +24,7 @@ export default function ConfirmPage() {
         
         <div className="bg-blue-50 rounded-xl p-4 mb-8 shadow flex flex-col items-center">
           <div className="text-lg font-semibold text-blue-800 mb-1">
-            {duration} Days Booster
+            {days} Days Booster
           </div>
           <div className="text-gray-600 mb-2">{benefit}</div>
           <div className="text-sm text-gray-400 line-through mb-1">
@@ -34,11 +36,19 @@ export default function ConfirmPage() {
         </div>
         <button
           onClick={handleConfirm}
-          className="w-full bg-blue-500 hover:bg-red-600  text-white py-3 rounded-xl text-lg font-bold shadow-lg transition"
+          className="w-full bg-blue-500 hover:bg-red-600 text-white py-3 rounded-xl text-lg font-bold shadow-lg transition"
         >
           Confirm Purchase
         </button>
       </div>
     </div>
+  )
+}
+
+export default function ConfirmPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ConfirmPageInner />
+    </Suspense>
   )
 }
