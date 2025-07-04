@@ -72,7 +72,7 @@ export default function CouponPage() {
         </div>
         <button
           onClick={proceed}
-          className="w-full mt-8 bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white py-3 rounded-xl text-lg font-bold shadow-lg transition"
+          className="w-full mt-8 bg-blue-600  hover:bg-green-600 text-white py-3 rounded-xl text-lg font-bold shadow-lg transition"
         >
           Continue
         </button>
