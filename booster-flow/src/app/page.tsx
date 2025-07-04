@@ -10,9 +10,12 @@ const plans = [
 export default function HomePage() {
   const router = useRouter()
 
-  const handleSelect = (plan: { price: number }) => {
-    router.push(`/coupon?price=${plan.price}`)
-  }
+  const handleSelect = (plan: { price: number; days: number; benefit: string }) => {
+  router.push(
+    `/coupon?price=${plan.price}&days=${plan.days}&benefit=${encodeURIComponent(plan.benefit)}`
+  )
+}
+
 
   return (
    <main className="flex flex-col justify-center items-center min-h-screen p-4 bg-gradient-to-br from-gray-50 to-blue-100">
