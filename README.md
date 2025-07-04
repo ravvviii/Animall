@@ -35,7 +35,7 @@ page.tsx in src folder is main landing page and folders like [confirm, coupon, s
 ## 🔄 Data Flow
 
 - Plan details are passed between pages via URL query parameters for simplicity.
-- For larger apps, consider using React Context or localStorage for state management.
+- we vcan use redux, zustand for state managment if the application gets large.
 
 ## 🧑‍💻 Getting Started
 
